@@ -13,8 +13,18 @@ public class CalculatorService {
     }
 
     public double add() {
-        double firstNumber = Double.parseDouble(calculatorView.getFirstArgumentAsString());
-        double secondNumber = Double.parseDouble(calculatorView.getSecondArgumentAsString());
+        double firstNumber;
+        double secondNumber;
+//        calculatorView.setFirstArgument("13");
+//        calculatorView.setSecondArgument("g");
+        try {
+            firstNumber = Double.parseDouble(calculatorView.getFirstArgumentAsString());
+            secondNumber = Double.parseDouble(calculatorView.getSecondArgumentAsString());
+        } catch (NumberFormatException | InputMismatchException e) {
+            calculatorView.displayError("Input double");
+            throw new InputMismatchException();
+        }
+
         Scanner in = new Scanner(System.in);
         String operation = in.nextLine();
         in.close();

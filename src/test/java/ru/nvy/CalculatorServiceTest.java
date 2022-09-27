@@ -19,6 +19,46 @@ import static org.mockito.Mockito.when;
 class CalculatorServiceTest {
     CalculatorView calculatorView = new CalculatorView();
 
+    @DisplayName("FirstNumber check(Exp)")
+    @Test
+    void firstNumberCheck() {
+        calculatorView.setFirstArgument("g");
+        calculatorView.setSecondArgument("6.0");
+        CalculatorService calculatorService = new CalculatorService(calculatorView);
+        Exception exception = assertThrows(InputMismatchException.class, calculatorService::add);
+        assertNull(exception.getMessage());
+    }
+    @DisplayName("SecondNumber check(Exp)")
+    @Test
+    void secondNumberCheck() {
+        calculatorView.setFirstArgument("6.0");
+        calculatorView.setSecondArgument("g");
+        CalculatorService calculatorService = new CalculatorService(calculatorView);
+        Exception exception = assertThrows(InputMismatchException.class, calculatorService::add);
+        assertNull(exception.getMessage());
+    }
+
+    @DisplayName("Without number(Exp)")
+    @Test
+    void withoutNumber() {
+        calculatorView.setFirstArgument("");
+        calculatorView.setSecondArgument("7.0");
+        CalculatorService calculatorService = new CalculatorService(calculatorView);
+        Exception exception = assertThrows(NoSuchElementException.class, calculatorService::add);
+        assertNull(exception.getMessage());
+    }
+
+    @DisplayName("Without_2 number(Exp)")
+    @Test
+    void withoutNumber_2() {
+        calculatorView.setFirstArgument("7.0");
+        calculatorView.setSecondArgument("");
+        CalculatorService calculatorService = new CalculatorService(calculatorView);
+        Exception exception = assertThrows(InputMismatchException.class, calculatorService::add);
+        assertNull(exception.getMessage());
+    }
+
+
     @DisplayName("Sign check (+)")
     @Test
     void addCheckSum() {
