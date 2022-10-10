@@ -1,20 +1,20 @@
-package ru.nvy;
+package ru.nvy.unit;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
+import ru.nvy.CalculatorModel;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class CalculatorTest {
-
-    private final Calculator calculator = new Calculator();
+class CalculatorModelUnitTest {
+    private final CalculatorModel calculatorModel = new CalculatorModel();
 
     @DisplayName("Sum two numbers")
     @RepeatedTest(50)
     void sum() {
         double a = Math.random();
         double b = Math.random();
-        assertEquals(a + b, calculator.sum(a, b));
+        assertEquals(a + b, calculatorModel.sum(a, b));
     }
 
     @DisplayName("Subtract two numbers")
@@ -22,7 +22,7 @@ class CalculatorTest {
     void subtract() {
         double a = Math.random();
         double b = Math.random();
-        assertEquals(a - b, calculator.subtract(a, b));
+        assertEquals(a + b, calculatorModel.sum(a, b));
     }
 
     @DisplayName("Multiply two numbers")
@@ -30,7 +30,7 @@ class CalculatorTest {
     public void multiply() {
         double a = Math.random();
         double b = Math.random();
-        assertEquals(a * b, calculator.multiply(a, b));
+        assertEquals(a + b, calculatorModel.sum(a, b));
     }
 
     @DisplayName("Divide two numbers")
@@ -38,14 +38,15 @@ class CalculatorTest {
     void divide() {
         double a = Math.random();
         double b = Math.random();
-        assertEquals(a / b, calculator.divide(a, b));
+        assertEquals(a + b, calculatorModel.sum(a, b));
     }
 
     @DisplayName("DivideZero two numbers")
     @org.junit.jupiter.api.Test
     void divideZero() {
+        double a = Math.random();
         Exception exception = assertThrows(ArithmeticException.class, () ->
-                calculator.divide(1, 0));
+                calculatorModel.divide(a, 0));
         assertNull(exception.getMessage());
     }
 }

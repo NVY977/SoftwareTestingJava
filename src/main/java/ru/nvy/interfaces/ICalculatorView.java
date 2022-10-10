@@ -1,7 +1,5 @@
 package ru.nvy.interfaces;
 
-import ru.nvy.Calculator;
-
 public interface ICalculatorView {
 
     /**

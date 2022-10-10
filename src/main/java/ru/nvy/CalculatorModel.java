@@ -2,7 +2,7 @@ package ru.nvy;
 
 import ru.nvy.interfaces.ICalculator;
 
-public class Calculator implements ICalculator {
+public class CalculatorModel implements ICalculator {
     @Override
     public double sum(double a, double b) {
         return a + b;
