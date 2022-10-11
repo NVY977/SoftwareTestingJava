@@ -9,8 +9,9 @@ import static org.junit.jupiter.api.Assertions.*;
 class CalculatorModelTest {
     private final ViewMock viewMock = new ViewMock();
     private final CalculatorPresenter calculatorPresenter = new CalculatorPresenter(viewMock);
+
     @DisplayName("Sum two numbers")
-    @RepeatedTest(50)
+    @RepeatedTest(10)
     void sum() {
         double a = Math.random();
         double b = Math.random();
@@ -21,7 +22,7 @@ class CalculatorModelTest {
     }
 
     @DisplayName("Subtract two numbers")
-    @RepeatedTest(50)
+    @RepeatedTest(10)
     void subtract() {
         double a = Math.random();
         double b = Math.random();
@@ -32,7 +33,7 @@ class CalculatorModelTest {
     }
 
     @DisplayName("Multiply two numbers")
-    @RepeatedTest(50)
+    @RepeatedTest(10)
     public void multiply() {
         double a = Math.random();
         double b = Math.random();
@@ -43,7 +44,7 @@ class CalculatorModelTest {
     }
 
     @DisplayName("Divide two numbers")
-    @RepeatedTest(50)
+    @RepeatedTest(10)
     void divide() {
         double a = Math.random();
         double b = Math.random();
@@ -51,16 +52,5 @@ class CalculatorModelTest {
         viewMock.setB(String.valueOf(b));
         calculatorPresenter.onDivideClicked();
         assertEquals(a / b, viewMock.getResult());
-    }
-
-    @DisplayName("DivideZero two numbers")
-    @org.junit.jupiter.api.Test
-    void divideZero() {
-        double a = Math.random();
-        double b = 0;
-        viewMock.setA(String.valueOf(a));
-        viewMock.setB(String.valueOf(b));
-        Exception exception = assertThrows(ArithmeticException.class, calculatorPresenter::onDivideClicked);
-        assertNull(exception.getMessage());
     }
 }

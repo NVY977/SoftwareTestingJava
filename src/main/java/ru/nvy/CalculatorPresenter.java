@@ -15,9 +15,6 @@ public class CalculatorPresenter implements ICalculatorPresenter {
     }
 
     public double checkNumber(String getString) {
-        if(getString == null){
-            throw new InputMismatchException("String is null");
-        }
         double number;
         try {
             number = Double.parseDouble(getString);
@@ -51,10 +48,10 @@ public class CalculatorPresenter implements ICalculatorPresenter {
     public void onDivideClicked() {
         double firstNumber = checkNumber(calculatorView.getFirstArgumentAsString());
         double secondNumber = checkNumber(calculatorView.getSecondArgumentAsString());
-        if(secondNumber == 0){
+        try {
+            calculatorView.printResult(calculatorModel.divide(firstNumber, secondNumber));
+        } catch(ArithmeticException e) {
             calculatorView.displayError("Divide 0");
-            throw new ArithmeticException();
         }
-        calculatorView.printResult(calculatorModel.divide(firstNumber, secondNumber));
     }
 }

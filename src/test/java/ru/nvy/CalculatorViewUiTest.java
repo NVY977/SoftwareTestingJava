@@ -1,21 +1,25 @@
+
 package ru.nvy;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import ru.nvy.mock.ViewMock;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.InputEvent;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class CalculatorViewUiTest {
+    private static ViewMock viewMock;
     private static Robot robot;
     private static double a, b;
     private static CalculatorView calculatorView;
 
     @BeforeAll
     public static void init() {
+        viewMock = new ViewMock();
         calculatorView = new CalculatorView();
         try {
             robot = new Robot();
@@ -80,12 +84,21 @@ public class CalculatorViewUiTest {
         Thread.sleep(100);
     }
 
-//    @Test
-//    public void testDivideZero() throws InterruptedException {
-//        setA(a);
-//        setB(0.00);
-//        click(calculatorView.getDivide());
-//        assertEquals("Divide 0",calculatorView.output.getText());
-//        Thread.sleep(100);
-//    }
+    @Test
+    public void testDivideZero() throws InterruptedException {
+        setA(a);
+        setB(0);
+        click(calculatorView.getDivide());
+        assertEquals("Divide 0",calculatorView.output.getText());
+        Thread.sleep(100);
+    }
+
+    @Test
+    public void testNullString() throws InterruptedException {
+        setA(a);
+        calculatorView.secondNumber.setText(null);
+        click(calculatorView.getPlus());
+        assertEquals("Input double",calculatorView.output.getText());
+        Thread.sleep(100);
+    }
 }

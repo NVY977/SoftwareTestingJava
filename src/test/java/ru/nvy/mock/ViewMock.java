@@ -1,22 +1,19 @@
 package ru.nvy.mock;
 
+import ru.nvy.CalculatorView;
 import ru.nvy.interfaces.ICalculatorView;
 
-public class ViewMock implements ICalculatorView {
+public class ViewMock extends CalculatorView implements ICalculatorView {
     private String a,b;
     private double result;
-    private String error;
+    public String error;
 
-    public String getA() {
-        return a;
+    public ViewMock() {
+        super();
     }
 
     public void setA(String a) {
         this.a = a;
-    }
-
-    public String getB() {
-        return b;
     }
 
     public void setB(String b) {
@@ -26,11 +23,6 @@ public class ViewMock implements ICalculatorView {
     public double getResult() {
         return result;
     }
-
-    public void setResult(double result) {
-        this.result = result;
-    }
-
     public String getError() {
         return error;
     }

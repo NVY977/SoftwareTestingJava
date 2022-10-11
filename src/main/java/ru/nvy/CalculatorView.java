@@ -12,10 +12,10 @@ public class CalculatorView implements ICalculatorView {
     private final JFrame frame = new JFrame();
     public final JTextField firstNumber = new JTextField("");
     public final JTextField secondNumber = new JTextField("");
-    private JButton plus = new JButton("+");
-    private JButton minus = new JButton("-");
-    private JButton multiply = new JButton("*");
-    private JButton divide = new JButton("/");
+    private final JButton plus = new JButton("+");
+    private final JButton minus = new JButton("-");
+    private final JButton multiply = new JButton("*");
+    private final JButton divide = new JButton("/");
     public final JLabel output = new JLabel("");
     private final ICalculatorPresenter calcPres;
     public CalculatorView() {
@@ -90,7 +90,7 @@ public class CalculatorView implements ICalculatorView {
     }
     @Override
     public void displayError(String message) {
-        JOptionPane.showMessageDialog(frame, message);
+        output.setText(message);
     }
     @Override
     public String getFirstArgumentAsString() {
@@ -115,7 +115,7 @@ public class CalculatorView implements ICalculatorView {
         return divide;
     }
     //endregion
-    public static void main(String[] args) {
-        new CalculatorView();
-    }
+//    public static void main(String[] args) {
+//        new CalculatorView();
+//    }
 }
