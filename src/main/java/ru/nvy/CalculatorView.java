@@ -115,7 +115,7 @@ public class CalculatorView implements ICalculatorView {
         return divide;
     }
     //endregion
-//    public static void main(String[] args) {
-//        new CalculatorView();
-//    }
+    public static void main(String[] args) {
+        new CalculatorView();
+    }
 }

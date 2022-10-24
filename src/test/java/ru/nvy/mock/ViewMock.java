@@ -23,14 +23,6 @@ public class ViewMock extends CalculatorView implements ICalculatorView {
     public double getResult() {
         return result;
     }
-    public String getError() {
-        return error;
-    }
-
-    public void setError(String error) {
-        this.error = error;
-    }
-
     @Override
     public void printResult(double result) {
         this.result=result;

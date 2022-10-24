@@ -1,8 +1,9 @@
 
-package ru.nvy;
+package ru.nvy.ui;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import ru.nvy.CalculatorView;
 import ru.nvy.mock.ViewMock;
 
 import javax.swing.*;
@@ -35,7 +36,7 @@ public class CalculatorViewUiTest {
         robot.mouseMove(p.x + 15, p.y + 50);
         robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
         robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
-        Thread.sleep(10);
+        Thread.sleep(1000);
     }
 
     private void setA(double a) throws InterruptedException {

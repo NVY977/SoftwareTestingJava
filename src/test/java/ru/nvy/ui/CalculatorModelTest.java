@@ -1,7 +1,8 @@
-package ru.nvy;
+package ru.nvy.ui;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
+import ru.nvy.CalculatorPresenter;
 import ru.nvy.mock.ViewMock;
 
 import static org.junit.jupiter.api.Assertions.*;
